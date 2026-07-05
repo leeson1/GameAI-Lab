@@ -136,47 +136,36 @@ Dead + Clear
 
 ## 4. 第一版目录结构
 
-建议目录：
+项目按学习阶段组织，每个阶段包含自己的说明、代码和运行入口；跨阶段复用的环境与工具放在 `shared/`：
 
 ```text
 GameAI-Lab/
 ├── README.md
-├── docs/
-│   ├── 00_project_goal.md
-│   ├── 01_fsm.md
-│   ├── 02_behavior_tree.md
-│   ├── 03_utility_ai.md
-│   ├── 04_mdp.md
-│   ├── 05_value_iteration.md
-│   ├── 06_q_learning.md
-│   └── 07_dqn.md
-├── src/
+├── stages/
+│   ├── 01_fsm/
+│   ├── 02_behavior_tree/
+│   ├── 03_utility_ai/
+│   ├── 04_mdp/
+│   ├── 05_value_iteration/
+│   ├── 06_q_learning/
+│   ├── 07_dqn/
+│   └── 08_actor_critic_ppo/
+├── shared/
 │   ├── common/
-│   │   ├── types.h
-│   │   └── random.h
-│   ├── farm/
-│   │   ├── farm_state.h
-│   │   ├── farm_action.h
-│   │   ├── farm_environment.h
-│   │   ├── farm_environment.cpp
-│   │   └── main.cpp
-│   ├── agents/
-│   │   ├── utility_ai_agent.h
-│   │   ├── mdp_agent.h
-│   │   └── q_learning_agent.h
-│   └── main.cpp
+│   └── farm/
 ├── tests/
 ├── CMakeLists.txt
 └── .gitignore
 ```
 
-第一阶段可以先不一次性建完所有文件，优先实现：
+每个阶段内部后续统一使用以下结构：
 
 ```text
-README.md
-src/farm/
-src/agents/
-CMakeLists.txt
+stages/xx_stage_name/
+├── README.md
+├── include/
+├── src/
+└── main.cpp
 ```
 
 ---
@@ -374,7 +363,7 @@ Card Game AI    出牌策略 / 长期收益
 
 ## 10. 当前任务列表
 
-- [ ] 创建基础目录结构
+- [x] 创建基础目录结构
 - [ ] 创建 CMakeLists.txt
 - [ ] 实现 FarmEnvironment
 - [ ] 实现 UtilityAIAgent
